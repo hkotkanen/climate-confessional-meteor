@@ -1,0 +1,11 @@
+<template name="layout">
+    {{# if currentUser }}
+      <header>
+        <h1>Confession admin</h1>
+      </header>
+    {{/if}}
+
+  <div class="container">
+    {{> Template.dynamic template=main}}
+  </div>
+</template>

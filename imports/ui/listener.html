@@ -1,0 +1,19 @@
+<template name="listener">
+  <h1>Tell me your secret</h1>
+  {{> loginButtons }}
+  <br>
+  <button class="toggle-listening">
+    {{#if isListening}}
+      Stop listening
+    {{else}}
+      Start listening
+    {{/if}}
+  </button>
+  <div>
+    <p class="diagnostic-output"><em>{{interimResult}}</em></p>
+  </div>
+
+  <div>
+    <h2 class="final-output"><em>{{finalResult}}</em></h2>
+  </div>
+</template>
