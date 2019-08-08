@@ -8,7 +8,6 @@ Template.listener.onCreated(function onCreated() {
   this.state.set('listening', false);
   this.state.set('interimResult', '...');
   this.state.set('sessionResults', []);
-  this.state.set('finalResult', '...');
 
   this.recognition = new webkitSpeechRecognition();
   this.recognition.continuous = true;
@@ -39,7 +38,7 @@ Template.listener.helpers({
     return Template.instance().state.get('interimResult');
   },
   finalResult() {
-    return Template.instance().state.get('finalResult');
+    return Template.instance().state.get('sessionResults').join('. ');
   },
 });
 
@@ -51,15 +50,14 @@ Template.listener.events({
 
     if (listening) {
       instance.recognition.start();
-      instance.state.set('finalResult', '...');
+      instance.state.set('sessionResults', []);
     } else {
       instance.recognition.stop();
       Meteor.setTimeout(
         () => {
           console.log(`Final message: ${instance.state.get('sessionResults').join('. ')}`);
           instance.state.set('interimResult', '...');
-          instance.state.set('finalResult', instance.state.get('sessionResults').join('. '));
-          Meteor.call('confessions.insert', instance.state.get('finalResult'));
+          Meteor.call('confessions.insert', instance.state.get('sessionResults').join('. '));
         },
         5000
       );
