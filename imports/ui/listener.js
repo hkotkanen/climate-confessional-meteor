@@ -55,9 +55,14 @@ Template.listener.events({
       instance.recognition.stop();
       Meteor.setTimeout(
         () => {
-          console.log(`Final message: ${instance.state.get('sessionResults').join('. ')}`);
-          instance.state.set('interimResult', '...');
-          Meteor.call('confessions.insert', instance.state.get('sessionResults').join('. '));
+          const finalMessage = instance.state.get('sessionResults').join('. ');
+          if (finalMessage !== '') {
+            console.log(`Final message: ${finalMessage}`);
+            instance.state.set('interimResult', '...');
+            Meteor.call('confessions.insert', finalMessage);
+          } else {
+            console.log('Skipped saving empty message.')
+          }
         },
         5000
       );

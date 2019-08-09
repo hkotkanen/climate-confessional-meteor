@@ -11,7 +11,12 @@ export const Confessions = new Mongo.Collection('confessions');
 
 if (Meteor.isServer) {
   Meteor.publish('confessions', function confessionsPublication() {
-    return Confessions.find({ hidden: { $ne: true } });
+    return Confessions.find({
+      $or: [
+        { hidden: { $ne: true } },
+        { owner: this.userId },
+      ],
+    });
   });
 }
 

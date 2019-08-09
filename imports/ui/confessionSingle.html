@@ -1,3 +1,22 @@
 <template name="confessionSingle">
-  <li class="{{#if isHidden}}hidden{{/if}}">{{text}}</li>
+  <li class="{{#if isHidden}}hidden{{/if}}">
+    <blockquote>
+      {{#if isOwner}}
+        <div class="confession-info">
+          <button class="toggle-hidden delete">
+            {{#if hidden}}
+              Show
+            {{else}}
+              Hide
+            {{/if}}
+          </button>
+          <small>Timestamp: {{isoDate}}</small>
+          <br>
+          <small>ID: {{_id}}</small>
+        </div>
+        <br>
+      {{/if}}
+      {{text}}
+    </blockquote>
+  </li>
 </template>

@@ -1,7 +1,8 @@
 <template name="layout">
     {{# if currentUser }}
       <header>
-        <h1>Confession admin</h1>
+        {{> loginButtons}}
+        <span class="header-span">Admin ({{hiddenCount}} hidden)</span>
       </header>
     {{/if}}
 

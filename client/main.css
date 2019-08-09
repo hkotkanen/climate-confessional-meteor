@@ -17,77 +17,61 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   padding: 10px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  /*background: rgba(255, 255, 255, 0.1);*/
 }
 
 header {
   background: #d2edf4;
   padding: 20px 15px 15px 15px;
   position: relative;
+  height: 20px;
+  text-align: center;
 }
 
 #login-buttons {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5px;
+  left: 5px;
   font-size: 12px;
+}
+#login-dropdown-list {
+  top: 25px;
+  left: 10px;
 }
 
 h1 {
   /*font-size: 1.5em;*/
-  display: inline-block;
-  margin-left: 0.5em;
-}
-
-form {
-  margin-top: 10px;
-  margin-bottom: -10px;
-  position: relative;
-}
-
-.confession-hero {
-  width: 100%;
-  top: 40%;
-  background: rgba(1, 1, 1, 0.05);
-}
-
-.new-confession input {
-  box-sizing: border-box;
-  padding: 10px 0;
-  background: transparent;
-  border: none;
-  width: 100%;
-  padding-right: 80px;
-  font-size: 1em;
-}
-
-.new-confession input:focus{
-  outline: 0;
+  text-align: center;
+  margin: 20px 0 40px 0;
 }
 
 ul {
-  /*margin: 10px;*/
   padding: 0;
 }
 
 .delete {
   float: right;
   font-weight: bold;
-  background: none;
-  font-size: 1em;
-  border: none;
+  background: rgba(200, 200, 200, 0.1);
+  font-size: 0.75em;
+  /*border: none;*/
   position: relative;
+}
+
+.confession-info {
+  margin-bottom: -10px;
 }
 
 li {
   position: relative;
   list-style: none;
-  padding: 15px;
-  border-bottom: rgba(0.1, 0.1, 0.1, 0.1) solid 1px;
+  /*padding: 15px;*/
+  /*margin-bottom: 4px;*/
+  /*border-bottom: rgba(0.1, 0.1, 0.1, 0.1) solid 1px;*/
 }
 
 li .text {
@@ -103,10 +87,9 @@ li.checked .text {
 }
 
 li.hidden {
-  /*background: #eee;*/
-  /*border-color: #ddd;*/
-  background-color: gray;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.5) 10px, rgba(255,255,255,.5) 20px);
+  background-color: rgba(255, 100, 100, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  /*background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.5) 10px, rgba(255,255,255,.5) 20px);*/
 }
 
 header .hide-completed {
@@ -117,44 +100,24 @@ header .hide-completed {
   margin-left: 5px;
 }
 
-.toggle-autoplay {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-}
-
 @media (max-width: 600px) {
   .container {
-    width: 100vw;
-  }
-
-  li {
-    padding: 12px 15px;
+    width: 100%;
+    padding: 0;
   }
 
   .search {
     width: 150px;
     clear: both;
   }
-
-  .new-confession input {
-    padding-bottom: 5px;
-  }
-}
-
-.separator {
-  width: 100%;
-  height: 2px;
-  background-color: brown;
 }
 
 /*block blockquote*/
 blockquote {
-  background: #f9f9f9;
-  border-left: 10px solid #ccc;
+  background: rgba(200, 200, 200, 0.2);
+  border-left: 4px solid #ccc;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
-  /*quotes: "\201C""\201D""\2018""\2019";*/
 }
 blockquote:before {
   color: #ccc;
