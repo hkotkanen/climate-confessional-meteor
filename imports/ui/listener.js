@@ -64,7 +64,7 @@ Template.listener.events({
             console.log('Skipped saving empty message.')
           }
         },
-        5000
+        2500
       );
     }
   },
