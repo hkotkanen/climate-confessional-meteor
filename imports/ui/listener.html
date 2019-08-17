@@ -1,19 +1,21 @@
 <template name="listener">
-  <h1>Climate confession listener</h1>
-  {{> loginButtons }}
-  <br>
-  <button class="toggle-listening">
-    {{#if isListening}}
-      Stop listening
-    {{else}}
-      Start listening
-    {{/if}}
-  </button>
-  <div>
-    <p class="diagnostic-output"><em>{{interimResult}}</em></p>
-  </div>
+  <div class="list-all-container">
+    <h1>Climate confession listener</h1>
+    {{> loginButtons }}
+    <br>
+    <button class="toggle-listening">
+      {{#if isListening}}
+        Stop listening
+      {{else}}
+        Start listening
+      {{/if}}
+    </button>
+    <div>
+      <p class="diagnostic-output"><em>{{interimResult}}</em></p>
+    </div>
 
-  <div>
-    <h2 class="final-output"><em>{{finalResult}}</em></h2>
+    <div>
+      <h2 class="final-output"><em>{{finalResult}}</em></h2>
+    </div>
   </div>
 </template>

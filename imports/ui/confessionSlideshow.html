@@ -1,0 +1,13 @@
+<template name="confessionSlideshow">
+  <div class="container">
+    {{#if Template.subscriptionsReady}}
+      {{#transition in="fadeIn:2000" out="fadeOut:1000"}}
+        {{#if visible}}
+          <div class="slideshow">
+            <i>{{confession.text}}</i>
+          </div>
+        {{/if}}
+      {{/transition}}
+    {{/if}}
+  </div>
+</template>
