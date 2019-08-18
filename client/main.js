@@ -4,6 +4,7 @@ import '../imports/ui/layout.js';
 import '../imports/ui/listener.js';
 import '../imports/ui/confessionList.js'
 import '../imports/ui/confessionSlideshow.js'
+import '../imports/ui/info.js'
 
 FlowRouter.route('/', {
   action: function (params) {
@@ -23,8 +24,8 @@ FlowRouter.route('/list-all', {
   }
 });
 
-// FlowRouter.route('/info', {
-//   action: function (params) {
-//     BlazeLayout.render('layout', { main: 'info' });
-//   }
-// });
+FlowRouter.route('/info', {
+  action: function (params) {
+    BlazeLayout.render('layout', { main: 'info' });
+  }
+});

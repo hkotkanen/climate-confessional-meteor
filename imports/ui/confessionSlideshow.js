@@ -4,7 +4,7 @@ import { Random } from 'meteor/random';
 
 import './confessionSlideshow.html';
 
-//
+
 function newConfession() {
   const array = Confessions.find().fetch();
   const randomIndex = Math.floor( Math.random() * array.length );
