@@ -2,9 +2,12 @@
   <div class="list-all-container">
     <h1>Climate confessional</h1>
     <ul>
-      {{#each confessions}}
-        {{> confessionSingle}}
-      {{/each}}
+      {{#if Template.subscriptionsReady}}
+        {{#each confessions}}
+            {{> confessionSingle}}
+        {{/each}}
+      {{/if}}
     </ul>
   </div>
+  <a class="back-button" href="/"><i class="material-icons">arrow_back</i></a>
 </template>

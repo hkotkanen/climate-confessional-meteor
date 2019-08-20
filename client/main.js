@@ -18,7 +18,7 @@ FlowRouter.route('/listener', {
   }
 });
 
-FlowRouter.route('/list-all', {
+FlowRouter.route('/list', {
   action: function (params) {
     BlazeLayout.render('layout', { main: 'confessionList' });
   }

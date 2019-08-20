@@ -8,7 +8,6 @@ import './confessionSlideshow.html';
 function newConfession() {
   const array = Confessions.find().fetch();
   const randomIndex = Math.floor( Math.random() * array.length );
-  console.log(array[randomIndex]);
   return array[randomIndex];
 }
 
@@ -31,7 +30,7 @@ Template.confessionSlideshow.onCreated(function created() {
     Meteor.setTimeout(() => {
       self.confession.set(newConfession());
       self.visible.set(true);
-    }, 750)
+    }, 500)
 
   }), 10 * 1000);
 });
