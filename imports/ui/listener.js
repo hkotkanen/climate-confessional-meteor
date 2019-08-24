@@ -63,7 +63,8 @@ Template.listener.events({
           } else {
             console.log('Skipped saving empty message.')
           }
-        },
+        },  // google might take this long or even maybe longer to answer
+            // so let's hope a new session isn't initiated during this time?
         2500
       );
     }
