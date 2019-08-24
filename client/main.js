@@ -6,6 +6,7 @@ import '../imports/ui/confessionList.js'
 import '../imports/ui/confessionSlideshow.js'
 import '../imports/ui/info.js'
 
+
 FlowRouter.route('/', {
   action: function (params) {
     BlazeLayout.render('layout', { main: 'confessionSlideshow' });
@@ -29,3 +30,9 @@ FlowRouter.route('/info', {
     BlazeLayout.render('layout', { main: 'info' });
   }
 });
+
+FlowRouter.notFound = {
+  action: function (params) {
+    BlazeLayout.render('layout', { main: 'confessionSlideshow' });
+  }
+};

@@ -1,7 +1,7 @@
 body {
   font-family: 'Crimson text', serif;
   background-color: #E7FFE6;
-  background-image: linear-gradient(to bottom, #FCF0F5, #E7FFE6 100%);
+  background-image: linear-gradient(180deg, #FCF0F5, #E7FFE6 100%);
   background-attachment: fixed;
 
   position: absolute;
