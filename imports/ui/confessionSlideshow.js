@@ -12,6 +12,8 @@ function newConfession() {
 }
 
 Template.confessionSlideshow.onCreated(function created() {
+  this.gallery = FlowRouter.getRouteName();
+
   var self = this;
 
   this.visible = new ReactiveVar(false);
@@ -45,5 +47,8 @@ Template.confessionSlideshow.helpers({
   },
   visible() {
     return Template.instance().visible.get();
+  },
+  galleryMode() {
+    return Template.instance().gallery;
   }
 });

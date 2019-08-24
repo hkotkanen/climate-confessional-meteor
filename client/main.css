@@ -117,6 +117,16 @@ body {
   background: #90BA7A;
 }
 
+.gallery-mode-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #ffffff1f;
+}
+.gallery-mode-button:hover {
+  background: #E7FFE6;
+}
+
 
 /* -- List -- */
 

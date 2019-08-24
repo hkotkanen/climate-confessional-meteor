@@ -12,6 +12,12 @@ FlowRouter.route('/', {
     BlazeLayout.render('layout', { main: 'confessionSlideshow' });
   }
 });
+FlowRouter.route('/gallery', {
+  name: 'gallery',
+  action: function (params) {
+    BlazeLayout.render('layout', { main: 'confessionSlideshow' });
+  }
+});
 
 FlowRouter.route('/listener', {
   action: function (params) {
