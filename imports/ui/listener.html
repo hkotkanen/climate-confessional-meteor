@@ -4,13 +4,21 @@
     {{#if currentUser}}
       <h1>Climate confession listener</h1>
       <br>
-      <button class="toggle-listening">
+
+      <button class="start-listening" disabled="{{isListening}}">
         {{#if isListening}}
-          Stop listening
+          Listening...
         {{else}}
           Start listening
         {{/if}}
       </button>
+
+      {{#if isListening}}
+        <button class="stop-listening">
+          Stop listening
+        </button>
+      {{/if}}
+
       <div>
         <p class="diagnostic-output"><em>{{interimResult}}</em></p>
       </div>
@@ -18,6 +26,8 @@
       <div>
         <h2 class="final-output"><em>{{finalResult}}</em></h2>
       </div>
+
+      <input type="text" class="robot-input" autofocus="True">
     {{/if}}
   </div>
 </template>

@@ -43,30 +43,45 @@ Template.listener.helpers({
 });
 
 Template.listener.events({
-  'click .toggle-listening'() {
+  'click .start-listening'() {
     const instance = Template.instance();
-    const listening = !instance.state.get('listening');
-    instance.state.set('listening', listening);
-
-    if (listening) {
-      instance.recognition.start();
-      instance.state.set('sessionResults', []);
-    } else {
-      instance.recognition.stop();
-      Meteor.setTimeout(
-        () => {
-          const finalMessage = instance.state.get('sessionResults').join('. ');
-          if (finalMessage !== '') {
-            console.log(`Final message: ${finalMessage}`);
-            instance.state.set('interimResult', '...');
-            Meteor.call('confessions.insert', finalMessage);
-          } else {
-            console.log('Skipped saving empty message.')
-          }
-        },  // google might take this long or even maybe longer to answer
-            // so let's hope a new session isn't initiated during this time?
-        2500
-      );
-    }
+    instance.state.set('listening', true);
+    instance.state.set('sessionResults', []);
+    instance.recognition.start();
   },
+  'click .stop-listening'() {
+    const instance = Template.instance();
+    instance.state.set('listening', false);
+
+    instance.recognition.stop();
+    Meteor.setTimeout(
+      () => {
+        const finalMessage = instance.state.get('sessionResults').join('. ');
+        if (finalMessage !== '') {
+          console.log(`Final message: ${finalMessage}`);
+          instance.state.set('interimResult', '...');
+          Meteor.call('confessions.insert', finalMessage);
+        } else {
+          console.log('Skipped saving empty message.')
+        }
+      },  // google might take this long or even maybe longer to answer
+          // so let's hope a new session isn't initiated during this time?
+      2500
+    );
+  },
+  'keydown .robot-input'(event) {
+    if (event.key === "l") {
+      // console.log('listening');
+      document.getElementsByClassName("start-listening")[0].click();
+      event.currentTarget.value = "";
+    }
+    else if (event.key === "s") {
+      try {
+        // console.log('stopping');
+        document.getElementsByClassName("stop-listening")[0].click();
+        event.currentTarget.value = "";
+      }
+      catch {}
+    }
+  }
 });
