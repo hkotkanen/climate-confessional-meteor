@@ -28,7 +28,7 @@ body {
 .info-container h2 {
   margin-top: 40px;
 }
-.info-container p {
+.art-talk p {
   font-size: 1.2em;
   padding: 0 20px;
 }
@@ -46,34 +46,46 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 
 .author-left {
-  margin-right: 20px;
+  width: 50%;
+  font-size: 1.2em;
+  margin-right: 50px;
   text-align: right;
 }
 .author-left img {
   top: 4px;
   position: relative;
-  margin-left: 3px;
+  margin: 3px;
+}
+.author-left a {
+  text-decoration: none;
+}
+.author-left p {
+  margin: 0 0 10px 0;
 }
 
 .author-right {
+  width: 50%;
 }
 .author-right img {
   border: 0;
+  float: left;
 }
 
 .partners {
   width: 100%;
   display: flex;
+  flex-direction: column;
+  /*flex-wrap: wrap;*/
   align-items: center;
   justify-content: center;
   margin: 10px 0 40px 0;
 }
 .partners img {
-  margin: 0 20px 10px;
+  margin: 0 20px 20px;
 }
 
 .back-button {
@@ -281,6 +293,11 @@ blockquote p {
     flex-direction: column;
     margin-top: 40px;
   }
+
+  .author-left {
+    margin-right: 20px;
+  }
+
   .partners {
     flex-direction: column;
   }
