@@ -28,9 +28,16 @@ body {
 .info-container h2 {
   margin-top: 40px;
 }
+
+.in-situ-images img {
+  margin-top: 10px;
+  height: 400px;
+}
+
 .art-talk p {
   font-size: 1.2em;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
+  margin: 30px;
 }
 
 .authors {
@@ -73,6 +80,7 @@ body {
 .author-right img {
   border: 0;
   float: left;
+  max-width: 250px;
 }
 
 .partners {
@@ -289,6 +297,10 @@ blockquote p {
     margin: 0 20px;
   }
 
+  .in-situ-images img{
+    height: 200px;
+  }
+
   .authors {
     flex-direction: column;
     margin-top: 40px;
@@ -296,6 +308,10 @@ blockquote p {
 
   .author-left {
     margin-right: 20px;
+  }
+
+  .author-right img {
+    max-width: 80%;
   }
 
   .partners {
