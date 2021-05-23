@@ -4,7 +4,7 @@ import { check } from 'meteor/check';
 
 export const Confessions = new Mongo.Collection('confessions');
 
-const allowedAccounts = Meteor.settings.public.allowedAccounts || [];
+const adminAccounts = Meteor.settings.public.adminAccounts || [];
 
 if (Meteor.isServer) {
   Meteor.publish('confessions', function confessionsPublication() {
@@ -21,8 +21,8 @@ Meteor.methods({
   'confessions.insert'(text) {
     check(text, String);
 
-    // Must be logged in AND be in allowed accounts
-    if (Meteor.user() === null || !allowedAccounts.includes(Meteor.user().username)) {
+    // Must be logged in AND be in admin accounts
+    if (Meteor.user() === null || !adminAccounts.includes(Meteor.user().username)) {
       throw new Meteor.Error('not-authorized');
     }
 

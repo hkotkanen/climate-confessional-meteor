@@ -31,6 +31,12 @@ FlowRouter.route('/list', {
   }
 });
 
+FlowRouter.route('/admin', {
+  action: function (params) {
+    BlazeLayout.render('layout', { main: 'confessionList' });
+  }
+});
+
 FlowRouter.route('/info', {
   action: function (params) {
     BlazeLayout.render('layout', { main: 'info' });

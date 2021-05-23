@@ -1,7 +1,13 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 import './listener.html';
+
+const adminAccounts = Meteor.settings.public.adminAccounts || [];
+function isAdmin() {
+  return !!Meteor.user() && adminAccounts.includes(Meteor.user().username);
+}
 
 Template.listener.onCreated(function onCreated() {
   this.state = new ReactiveDict();
@@ -57,12 +63,12 @@ Template.listener.events({
     Meteor.setTimeout(
       () => {
         const finalMessage = instance.state.get('sessionResults').join('. ');
-        if (finalMessage !== '') {
-          console.log(`Final message: ${finalMessage}`);
+        if (isAdmin() && finalMessage !== '') {
+          console.log(`Saving final message: ${finalMessage}`);
           instance.state.set('interimResult', '...');
           Meteor.call('confessions.insert', finalMessage);
         } else {
-          console.log('Skipped saving empty message.')
+          console.log(`Did not save message: ${finalMessage}`)
         }
       },  // google might take this long or even maybe longer to answer
           // so let's hope a new session isn't initiated during this time?

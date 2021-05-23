@@ -1,6 +1,5 @@
 import { Template } from 'meteor/templating';
 import { Confessions } from "../api/confessions";
-import { Random } from 'meteor/random';
 
 import './confessionSlideshow.html';
 

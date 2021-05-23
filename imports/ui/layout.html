@@ -1,8 +1,8 @@
 <template name="layout">
-    {{# if currentUser }}
+    {{# if isAdminUser }}
       <header>
         {{> loginButtons}}
-        <span class="header-span">Admin ({{hiddenCount}} hidden)</span>
+        <span class="header-span"><marquee>ADMIN MODE ENGAGED</marquee></span>
       </header>
     {{/if}}
 

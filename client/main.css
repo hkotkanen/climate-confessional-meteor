@@ -189,11 +189,19 @@ li.hidden {
 /* -- Misc -- */
 
 header {
-  background: #d2edf4;
+  /* background: #d2edf4; */
+  background-image: linear-gradient(45deg, #d2edf4 25%, #ffd9df 25%, #ffd9df 50%, #d2edf4 50%, #d2edf4 75%, #ffd9df 75%, #ffd9df 100%);
+  background-size: 56.57px 56.57px;
   padding: 20px 15px 15px 15px;
   position: relative;
-  height: 20px;
+  height: 200px;
   text-align: center;
+}
+.header-span {
+  font-size: x-large;
+}
+.header-span marquee {
+  margin-top: 80px;
 }
 
 #login-buttons {
