@@ -76,9 +76,6 @@ a {
   position: relative;
   margin: 3px;
 }
-.author-left a {
-  text-decoration: none;
-}
 .author-left p {
   margin: 0 0 10px 0;
 }
