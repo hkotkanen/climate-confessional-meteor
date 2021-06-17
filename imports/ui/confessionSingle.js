@@ -10,8 +10,8 @@ Template.confessionSingle.helpers({
   isOwner() {
     return Meteor.userId() === this.owner;
   },
-  isoDate() {
-    return this.createdAt.toISOString();
+  dateString() {
+    return this.createdAt.toLocaleString();
   },
 });
 
