@@ -4,10 +4,15 @@ import { Confessions } from "../api/confessions";
 import './confessionSlideshow.html';
 
 
-function newConfession() {
+function newConfession(prevConfession) {
+  let randConfession = null;
   const array = Confessions.find().fetch();
-  const randomIndex = Math.floor( Math.random() * array.length );
-  return array[randomIndex];
+  do {
+    const randomIndex = Math.floor( Math.random() * array.length );
+    randConfession = array[randomIndex];
+  // get a new one until it's different from the previous one
+  } while (!!prevConfession && randConfession._id == prevConfession.get()._id)
+  return randConfession;
 }
 
 Template.confessionSlideshow.onCreated(function created() {
@@ -29,7 +34,7 @@ Template.confessionSlideshow.onCreated(function created() {
 
     // animate fadein after a delay
     Meteor.setTimeout(() => {
-      self.confession.set(newConfession());
+      self.confession.set(newConfession(self.confession));
       self.visible.set(true);
     }, 500)
 
